@@ -114,5 +114,5 @@ def clear_data():
 class Command(BaseCommand):
     def handle(self, *args, **options):
         # clear_data()
-        # half_marathon()
+        half_marathon()
         print("completed")
