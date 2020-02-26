@@ -28,3 +28,11 @@ class Workout(models.Model):
     pace = models.CharField(max_length=200, null=True, blank=True)
     duration = models.CharField(max_length=200, null=True, blank=True)
     location = models.CharField(max_length=200, null=True, blank=True)
+
+class Friend(models.Model):
+    follower = models.ForeignKey(User, related_name="following", on_delete=models.CASCADE)
+    following = models.ForeignKey(User, related_name="followers", on_delete=models.CASCADE)
+
+class Photo(models.Model):
+    user = models.ForeignKey(User, related_name="photo", on_delete=models.CASCADE, null=True, blank=True)
+    photo = models.CharField(max_length=1000, null=True, blank=True)

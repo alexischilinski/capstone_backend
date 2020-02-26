@@ -1,4 +1,4 @@
-from .models import Activity, Schedule, Workout
+from .models import Activity, Schedule, Workout, Friend, Photo
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -16,3 +16,18 @@ class WorkoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout 
         fields = '__all__'
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+
+class FriendSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Friend
+        fields = ('follower', 'following')
+
+class PhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photo
+        fields = ('__all__')
