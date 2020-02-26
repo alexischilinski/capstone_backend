@@ -64,7 +64,7 @@ class WorkoutCreateDestroyViewSet(mixins.CreateModelMixin, mixins.DestroyModelMi
 class UserViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = User.objects.all()
     permission_classes = [
-        permissions.IsAuthenticated
+        permissions.AllowAny
     ]
 
     serializer_class = UserSerializer
