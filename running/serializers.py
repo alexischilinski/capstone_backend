@@ -20,12 +20,12 @@ class WorkoutSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'workouts', 'schedules', 'following')
 
 class FriendSerializer(serializers.ModelSerializer):
     class Meta:
         model = Friend
-        fields = ('follower', 'following')
+        fields = ('__all__')
 
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:

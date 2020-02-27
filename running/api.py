@@ -69,17 +69,26 @@ class UserViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Gen
 
     serializer_class = UserSerializer
 
-class FriendCreateDestroyViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
+class FriendCreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
     permission_classes = [
         permissions.IsAuthenticated
     ]
     serializer_class = FriendSerializer
 
-    def perform_destroy(self, serializer):
-        serializer.delete(follower=self.request.user)
+    # def perform_destroy(self, serializer):
+    #     serializer.delete(follower=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(follower=self.request.user)
+
+class FollowerViewSet(viewsets.ModelViewSet):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = FriendSerializer
+
+    def get_queryset(self):
+        return self.request.user.following.all()
 
 class FriendViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Friend.objects.all()
