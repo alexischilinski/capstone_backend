@@ -18,6 +18,8 @@ class Schedule(models.Model):
     user = models.ForeignKey(User, related_name="schedules", on_delete=models.CASCADE, null=True, blank=True)
     distance = models.CharField(max_length=200, null=True, blank=True)
     race_name = models.CharField(max_length=200, null=True, blank=True)
+    duration = models.CharField(max_length=200, null=True, blank=True)
+    completed = models.BooleanField(null=True, blank=True)
 
 class Workout(models.Model):
     user = models.ForeignKey(User, related_name="workouts", on_delete=models.CASCADE, null=True, blank=True)
