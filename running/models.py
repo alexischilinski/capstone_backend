@@ -38,4 +38,4 @@ class Friend(models.Model):
 
 class Photo(models.Model):
     user = models.ForeignKey(User, related_name="photo", on_delete=models.CASCADE, null=True, blank=True)
-    photo = models.CharField(max_length=1000, null=True, blank=True)
+    photo = models.CharField(max_length=100000, null=True, blank=True)
