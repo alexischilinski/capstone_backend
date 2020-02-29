@@ -389,9 +389,9 @@ def clear_data():
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        # clear_data()
-        half_marathon()
-        five_k()
-        ten_k()
-        full_marathon()
+        clear_data()
+        # half_marathon()
+        # five_k()
+        # ten_k()
+        # full_marathon()
         print("completed")
