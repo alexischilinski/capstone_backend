@@ -1,7 +1,7 @@
-from .models import Activity, Schedule, Workout, Friend, Photo
+from .models import Activity, Schedule, Workout, Friend, Photo, Message
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions, mixins
-from .serializers import ActivitySerializer, ScheduleSerializer, WorkoutSerializer, UserSerializer, FriendSerializer, PhotoSerializer
+from .serializers import ActivitySerializer, ScheduleSerializer, WorkoutSerializer, UserSerializer, FriendSerializer, PhotoSerializer, MessageSerializer
 
 class ActivityCreateDestroyViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
     permission_classes = [
@@ -122,3 +122,21 @@ class PhotoViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
     ]
 
     serializer_class = PhotoSerializer
+
+class IncomingMessageCRUDViewSet(viewsets.ModelViewSet):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = MessageSerializer
+
+    def get_queryset(self):
+        return self.request.user.incoming.all()
+
+class OutoingMessageCRUDViewSet(viewsets.ModelViewSet):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+    serializer_class = MessageSerializer
+
+    def get_queryset(self):
+        return self.request.user.outgoing.all()

@@ -39,3 +39,10 @@ class Friend(models.Model):
 class Photo(models.Model):
     user = models.ForeignKey(User, related_name="photo", on_delete=models.CASCADE, null=True, blank=True)
     photo = models.TextField(null=True, blank=True)
+
+class Message(models.Model):
+    receiver = models.ForeignKey(User, related_name="incoming", on_delete=models.CASCADE, null=True, blank=True)
+    sender = models.ForeignKey(User, related_name="outgoing", on_delete=models.CASCADE, null=True, blank=True)
+    message = models.TextField(blank=True, null=True)
+    read = models.BooleanField(blank=True, null=True)
+    subject = models.CharField(max_length=200, null=True, blank=True)
