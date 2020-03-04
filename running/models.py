@@ -47,3 +47,4 @@ class Message(models.Model):
     message = models.TextField(blank=True, null=True)
     read = models.BooleanField(blank=True, null=True)
     subject = models.CharField(max_length=200, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
