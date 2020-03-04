@@ -31,6 +31,7 @@ class Workout(models.Model):
     pace = models.CharField(max_length=200, null=True, blank=True)
     duration = models.CharField(max_length=200, null=True, blank=True)
     location = models.CharField(max_length=200, null=True, blank=True)
+    race_name = models.CharField(max_length=200, null=True, blank=True)
 
 class Friend(models.Model):
     follower = models.ForeignKey(User, related_name="following", on_delete=models.CASCADE)
