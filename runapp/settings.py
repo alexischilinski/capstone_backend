@@ -25,7 +25,7 @@ SECRET_KEY = '27hzmj#@-vx#d^+4106%)-bj=6(a087zq52^sv@-nt$j%5epuf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['capstone-ontrack.herokuapp.com',]
 
 
 # Application definition
