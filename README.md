@@ -2,6 +2,10 @@
 
 This app was created for runners by a runner. It is meant to help runners keep themselves accountable and track their progress while training for a race.
 
+## Deployment
+
+This app is deployed on Heroku: https://capstone-ontrack.herokuapp.com/
+
 ## Getting Started
 
 This is the backend for the project, and it is built in Python/Django. Fork and clone this repo to get started. It also utilizes a PostgreSQL database. It is paired with the frontend repo (https://github.com/alexiscait142/capstone_frontend).
