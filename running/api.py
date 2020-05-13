@@ -1,19 +1,26 @@
-from .models import Activity, Schedule, Workout, Friend, Photo, Message
+from .models import (
+    Activity, 
+    Schedule, 
+    Workout, 
+    Friend, 
+    Photo, 
+    Message
+)
 from django.contrib.auth.models import User
-from rest_framework import viewsets, permissions, mixins
-from .serializers import ActivitySerializer, ScheduleSerializer, WorkoutSerializer, UserSerializer, FriendSerializer, PhotoSerializer, MessageSerializer
-
-class ActivityCreateDestroyViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-    serializer_class = ActivitySerializer
-
-    def perform_destroy(self, serializer):
-        serializer.delete(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+from rest_framework import (
+    viewsets, 
+    permissions, 
+    mixins
+)
+from .serializers import (
+    ActivitySerializer, 
+    ScheduleSerializer, 
+    WorkoutSerializer, 
+    UserSerializer, 
+    FriendSerializer, 
+    PhotoSerializer, 
+    MessageSerializer
+)
 
 class ActivityViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Activity.objects.all()
@@ -45,18 +52,6 @@ class WorkoutViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.
     ]
 
     serializer_class = WorkoutSerializer
-
-class WorkoutCreateDestroyViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-    serializer_class = WorkoutSerializer
-
-    def perform_destroy(self, serializer):
-        serializer.delete(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
 
 class WorkoutCRUDViewSet(viewsets.ModelViewSet):
     permission_classes = [
@@ -93,18 +88,6 @@ class FriendViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.G
     ]
 
     serializer_class = FriendSerializer
-
-class PhotoCreateDestroyViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-    serializer_class = PhotoSerializer
-
-    def perform_destroy(self, serializer):
-        serializer.delete(user=self.request.user)
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
 
 class PhotoCRUDViewSet(viewsets.ModelViewSet):
     permission_classes = [

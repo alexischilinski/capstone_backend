@@ -1,13 +1,21 @@
 from rest_framework import routers
-from .api import (ActivityViewSet, ActivityCreateDestroyViewSet, 
-                ScheduleViewSet, WorkoutViewSet, WorkoutCreateDestroyViewSet, 
-                WorkoutCRUDViewSet, UserViewSet, FriendViewSet, PhotoCRUDViewSet, 
-                PhotoViewSet, FollowerViewSet, ScheduleCRUDViewSet,
-                IncomingMessageCRUDViewSet, OutoingMessageCRUDViewSet)
+from .api import (
+    ActivityViewSet, 
+    ScheduleViewSet, 
+    WorkoutViewSet, 
+    WorkoutCRUDViewSet, 
+    UserViewSet, 
+    FriendViewSet, 
+    PhotoCRUDViewSet, 
+    PhotoViewSet, 
+    FollowerViewSet, 
+    ScheduleCRUDViewSet,
+    IncomingMessageCRUDViewSet, 
+    OutoingMessageCRUDViewSet
+)
 
 router = routers.DefaultRouter()
 router.register('api/activities', ActivityViewSet, 'activities')
-router.register('api/cdactivities', ActivityCreateDestroyViewSet, 'createdestroyactivities')
 router.register('api/schedules', ScheduleViewSet, 'schedules')
 router.register('api/crudschedules', ScheduleCRUDViewSet, 'crudschedules')
 router.register('api/workouts', WorkoutViewSet, 'workouts')
