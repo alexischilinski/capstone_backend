@@ -64,7 +64,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:3000',
        'https://capstone-ontrack.firebaseapp.com',
-    #    'https://capstone-ontrack.web.app/',
+       'https://capstone-ontrack.web.app/',
 )
 
 ROOT_URLCONF = 'runapp.urls'
