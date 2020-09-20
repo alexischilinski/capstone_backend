@@ -25,12 +25,13 @@ class WorkoutSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = User
         fields = (
             'id', 
             'username', 
-            'email', 
+            'email',
             'first_name', 
             'last_name', 
             'workouts', 

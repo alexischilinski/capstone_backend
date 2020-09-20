@@ -65,7 +65,7 @@ class WorkoutCRUDViewSet(viewsets.ModelViewSet):
         
 
 class UserViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_superuser=False)
     permission_classes = [
         permissions.AllowAny
     ]
